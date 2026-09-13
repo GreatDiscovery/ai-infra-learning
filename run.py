@@ -8,10 +8,13 @@ SCRIPTS = {
     "00": "chapters/00-tensors/demo.py",
     "01": "chapters/01-classifier/train.py",
     "predict": "chapters/01-classifier/predict.py",
+    "02": "chapters/02-training-results/demo.py",
+    "03": "chapters/03-batches-devices/demo.py",
+    "05": "chapters/05-profiler/demo.py",
     "04": "chapters/04-performance/lab.py",
 }
 if len(sys.argv) < 2 or sys.argv[1] not in SCRIPTS:
-    print("用法：python run.py {00|01|predict|04} [章节参数]")
+    print("用法：python run.py {00|01|02|03|04|05|predict} [章节参数]")
     raise SystemExit(2)
 raise SystemExit(subprocess.call(
     [sys.executable, str(ROOT / SCRIPTS[sys.argv[1]]), *sys.argv[2:]], cwd=ROOT))

@@ -8,9 +8,10 @@
 |---|---|---|
 | [00 · Tensor 与一次学习](chapters/00-tensors/README.md) | 数据是什么形状？梯度如何改变参数？ | 可运行，建议从这里开始 |
 | [01 · 第一个分类模型](chapters/01-classifier/README.md) | 一批图片如何完成训练、验证、保存与预测？ | 可运行 |
-| 02 · 理解训练结果 | loss、准确率、过拟合与数据划分如何联系？ | 计划，学习后逐步实现 |
-| 03 · 模型怎样使用硬件 | batch、CPU/GPU、数据搬运如何影响训练？ | 计划，学习后逐步实现 |
+| [02 · 理解训练结果](chapters/02-training-results/README.md) | 学习率、loss、准确率与过拟合如何联系？ | 可运行 |
+| [03 · batch 与设备](chapters/03-batches-devices/README.md) | 同一批样本，推理批量与输入搬运如何影响速度？ | 可运行 |
 | [04 · 性能小实验](chapters/04-performance/README.md) | 形状、批处理、异步执行如何影响计时？ | 可运行，建议稍后学习 |
+| [05 · Profiler 排查](chapters/05-profiler/README.md) | 如何用调用次数和独立计时验证一次优化？ | 可运行 |
 
 后续路线见 [ROADMAP.md](ROADMAP.md)。学习进度和跨电脑接续位置见 [PROGRESS.md](PROGRESS.md)。
 
@@ -41,10 +42,15 @@ python run.py 00
 ```bash
 python run.py 01 --quick
 python run.py predict
+python run.py 02
+python run.py 03
 python run.py 04
+python run.py 05
 ```
 
-第 00 章不联网；第 01 章首次运行会下载公开 Fashion-MNIST 数据集。生成数据和模型只保存在本地。没有任何云服务密钥要求。
+第 00、03、04、05 章不需要联网；第 01、02 章复用公开 Fashion-MNIST 数据集，首次使用会下载。生成数据、模型、报告和 Profiler trace 只保存在本地。没有任何云服务密钥要求。
+
+建议按 **00 → 01 → 02 → 03 → 04 → 05** 顺序，每次只运行一章：先读问题并预测，运行后看终端输出或生成的 `report.md`，再改一个变量完成练习。新章节不要求你已训练出可用权重。
 
 ## 两台电脑如何接着学
 
